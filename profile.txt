@@ -1,0 +1,10 @@
+Saipavan Gunti is a 2026 B.Tech graduate in Computer Engineering (Data Science) from CMR Technical Campus, Hyderabad, with a CGPA of 8.6. He is looking for entry-level roles in software development, data analytics and AI/ML, in Hyderabad or remote, and can join immediately.
+
+Skills: Python, Java, SQL, computer vision, deep learning (CNN, LSTM). Basic knowledge of LLMs and RAG. Familiar with Power BI concepts.
+
+Projects:
+1. Traffic Management System.
+2. Pilot Situation Awareness: a deep learning project that led to a research paper (April 2026).
+3. This AI assistant: a Python and Streamlit chatbot built with the Gemini API and deployed online.
+
+GitHub: Saipavan0409
