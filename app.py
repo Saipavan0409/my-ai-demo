@@ -1,8 +1,15 @@
 import streamlit as st
 from google import genai
 from google.genai import types
+from pypdf import PdfReader
 
 st.title("My AI Assistant")
+
+pdf_text = ""
+f = st.sidebar.file_uploader("Upload a PDF (optional)", type="pdf")
+if f:
+    pdf_text = "\n".join((p.extract_text() or "") for p in PdfReader(f).pages)[:20000]
+    st.sidebar.success("PDF loaded")
 
 if "chat" not in st.session_state:
     st.session_state.client = genai.Client(api_key=st.secrets["GEMINI_KEY"])
@@ -16,7 +23,13 @@ for m in st.session_state.msgs:
 q = st.chat_input("Ask me anything")
 if q:
     st.chat_message("user").write(q)
-    a = st.session_state.chat.send_message(q).text
+    msg = q
+    if pdf_text:
+        msg = "Answer using this uploaded document.\nDocument:\n" + pdf_text + "\n\nQuestion: " + q
+    try:
+        a = st.session_state.chat.send_message(msg).text
+    except Exception:
+        a = "The AI is busy right now. Please try again in a minute."
     st.chat_message("assistant").write(a)
     st.session_state.msgs.append({"role": "user", "text": q})
     st.session_state.msgs.append({"role": "assistant", "text": a})
