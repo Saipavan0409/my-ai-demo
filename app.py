@@ -35,7 +35,7 @@ if q:
         msg = "Answer using this uploaded document.\nDocument:\n" + pdf_text + "\n\nQuestion: " + q
     import time
     a = None
-    for i in range(4):
+    for i in range(8):
         try:
             a = st.session_state.chat.send_message(msg).text
             break
