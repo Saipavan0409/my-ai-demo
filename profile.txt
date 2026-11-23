@@ -8,3 +8,5 @@ Projects:
 3. This AI assistant: a Python and Streamlit chatbot built with the Gemini API and deployed online.
 
 GitHub: Saipavan0409
+
+Pilot Situation Awareness (major project, team of 3, March 2026): a multimodal deep learning system that rates a pilot's situation awareness as High, Moderate or Low. It uses eye-gaze data (CNN) and flight control data like pitch, roll and throttle (LSTM), combined with an attention network. Fusing both worked better than using either alone. Published as a research paper (IJCRT, April 2026)
