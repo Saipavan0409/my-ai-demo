@@ -39,7 +39,7 @@ if q:
         try:
             a = st.session_state.chat.send_message(msg).text
             break
-        except Exception:
+        except Exception as e:
             time.sleep(2)
     if not a:
         a = "The AI is busy right now. Please try again in a minute."
