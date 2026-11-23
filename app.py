@@ -36,6 +36,7 @@ if q:
     try:
         a = st.session_state.chat.send_message(msg).text
     except Exception:
+        print("AI ERROR:", _import_("sys").exc_info()[1], flush=True)
         a = "The AI is busy right now. Please try again in a minute."
     st.chat_message("assistant").write(a)
     st.session_state.msgs.append({"role": "user", "text": q})
