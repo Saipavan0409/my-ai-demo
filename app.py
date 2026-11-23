@@ -10,6 +10,7 @@ if not st.user.is_logged_in:
     st.info("Please sign in to use the assistant.")
     st.button("Sign in with Google", on_click=st.login)
     st.stop()
+print("VISITOR:",st.user.email,st.user.name)
 
 pdf_text = ""
 f = st.sidebar.file_uploader("Upload a PDF (optional)", type="pdf")
