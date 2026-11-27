@@ -27,7 +27,19 @@ if "chat" not in st.session_state:
 for m in st.session_state.msgs:
     st.chat_message(m["role"]).write(m["text"])
 
+st.sidebar.markdown("---")
+st.sidebar.markdown("*Try asking:*")
+if st.sidebar.button("What are Saipavan's projects?"):
+    st.session_state.picked = "What are Saipavan's projects?"
+if st.sidebar.button("What skills does he have?"):
+    st.session_state.picked = "What skills does he have?"
+if st.sidebar.button("Tell me about his published paper"):
+    st.session_state.picked = "Tell me about his published paper"
+
 q = st.chat_input("Ask me anything")
+if not q and "picked" in st.session_state:
+    q = st.session_state["picked"]
+    del st.session_state["picked"]
 if q:
     st.chat_message("user").write(q)
     msg = q
