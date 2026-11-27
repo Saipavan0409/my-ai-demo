@@ -42,7 +42,12 @@ if q:
         except Exception as e:
             time.sleep(2)
     if not a:
-        a = "The AI is busy right now. Please try again in a minute."
+        a = "Please send your question again"
     st.chat_message("assistant").write(a)
     st.session_state.msgs.append({"role": "user", "text": q})
     st.session_state.msgs.append({"role": "assistant", "text": a})
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("*Connect with me*")
+    st.sidebar.markdown("[LinkedIn](https://www.linkedin.com/in/saipavan-gunti-698310367/)")
+    st.sidebar.markdown("[GitHub](https://github.com/Saipavan0409)")
+    st.sidebar.markdown("Email: saipavangunti0409@gmail.com")
