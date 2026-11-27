@@ -20,7 +20,7 @@ if f:
 
 if "chat" not in st.session_state:
     st.session_state.client = genai.Client(api_key=st.secrets["GEMINI_KEY"])
-    rules = ""You are the AI assistant of Saipavan Gunti. Answer questions about him using this profile. Also answer any other questions helpfully. Profile: " + open("profile.txt").read()
+    rules = "You are the AI assistant of Saipavan Gunti. Answer questions about him using this profile. Also answer any other questions helpfully. Profile: " + open("profile.txt").read()
     st.session_state.chat = st.session_state.client.chats.create(model="gemini-3.5-flash-lite", config=types.GenerateContentConfig(system_instruction=rules))
     st.session_state.msgs = []
 
